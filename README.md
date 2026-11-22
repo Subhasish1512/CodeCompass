@@ -311,8 +311,6 @@ pre-commit run --all-files
 
 ```
 codecompass/
-├── .github/workflows/ci.yml      # GitHub Actions CI
-├── .pre-commit-config.yaml       # Ruff pre-commit hooks
 ├── bench/                        # Evaluation suite
 │   ├── questions/                # YAML question files
 │   ├── results/                  # Output (gitignored)
@@ -408,7 +406,7 @@ codecompass search "create order" --repo demo --mode hybrid+graph
 codecompass callers $SYMBOL_ID --repo demo --depth 3
 codecompass impact $SYMBOL_ID --repo demo --depth 5
 
-# 10. Run lint (pre-commit / CI check)
+# 10. Run lint
 make lint
 # → Should pass with no errors
 
