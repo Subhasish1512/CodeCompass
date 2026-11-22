@@ -39,10 +39,10 @@ graph TB
     end
 
     subgraph API["FastAPI Server"]
-        Q --> R[/search]
-        Q --> S[/symbols/*]
-        Q --> T[/ask]
-        Q --> U[/repos/*/update]
+        Q --> R["/search"]
+        Q --> S["/symbols/*"]
+        Q --> T["/ask"]
+        Q --> U["/repos/*/update"]
     end
 
     subgraph MCP["MCP Server (stdio)"]
