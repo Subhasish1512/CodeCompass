@@ -1,0 +1,20 @@
+# Pre-commit hooks for CodeCompass
+# Install: pip install pre-commit && pre-commit install
+# Run manually: pre-commit run --all-files
+
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.17.6
+    hooks:
+      - id: ruff-check
+        args: [--fix, --exit-non-zero-on-fix]
+      - id: ruff-format
+
+# Optional: add more hooks as needed
+# - repo: local
+#   hooks:
+#     - id: no-print
+#       name: No print statements
+#       entry: grep -r "print(" src/ --include="*.py"
+#       language: system
+#       exclude: "test"

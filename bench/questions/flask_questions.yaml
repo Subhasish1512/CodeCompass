@@ -1,0 +1,104 @@
+# Flask Repository Benchmark Questions
+# Format:
+# - id: unique identifier
+#   repo: repository name (must match indexed repo name)
+#   type: [definition|callers|callees|refs|impact|natural_language]
+#   question: natural language query
+#   expected: list of expected results (qualified names or file:line ranges)
+#   tags: optional list of tags for filtering
+
+- id: "flask-def-001"
+  repo: "flask"
+  type: "definition"
+  question: "function that creates the Flask application instance"
+  expected:
+    - "Flask.__init__"
+    - "create_app"
+    - "flask/app.py:400-500"
+  tags: ["exact", "keyword-heavy"]
+
+- id: "flask-def-002"
+  repo: "flask"
+  type: "definition"
+  question: "class that handles HTTP request context"
+  expected:
+    - "RequestContext"
+    - "flask/ctx.py:200-350"
+  tags: ["semantic", "class"]
+
+- id: "flask-def-003"
+  repo: "flask"
+  type: "definition"
+  question: "blueprint registration function"
+  expected:
+    - "Flask.register_blueprint"
+    - "flask/app.py:900-1000"
+  tags: ["exact", "method"]
+
+- id: "flask-callers-001"
+  repo: "flask"
+  type: "callers"
+  question: "functions that call the URL routing dispatcher"
+  expected:
+    - "Flask.dispatch_request"
+    - "flask/app.py:1800-2000"
+    - "flask/app.py:2100-2200"
+  tags: ["graph", "transitive"]
+
+- id: "flask-callers-002"
+  repo: "flask"
+  type: "callers"
+  question: "what calls the template rendering function"
+  expected:
+    - "render_template"
+    - "flask/templating.py:100-200"
+  tags: ["graph", "direct"]
+
+- id: "flask-callees-001"
+  repo: "flask"
+  type: "callees"
+  question: "what does the request preprocessing pipeline call"
+  expected:
+    - "Flask.preprocess_request"
+    - "flask/app.py:2200-2400"
+  tags: ["graph", "direct"]
+
+- id: "flask-refs-001"
+  repo: "flask"
+  type: "refs"
+  question: "where is the Config class used throughout the codebase"
+  expected:
+    - "Config"
+    - "flask/config.py:50-150"
+  tags: ["graph", "references"]
+
+- id: "flask-impact-001"
+  repo: "flask"
+  type: "impact"
+  question: "impact of changing the session interface implementation"
+  expected:
+    - "SessionInterface"
+    - "flask/sessions.py:100-300"
+    - "flask/app.py:1200-1400"
+  tags: ["graph", "transitive", "impact"]
+
+- id: "flask-nl-001"
+  repo: "flask"
+  type: "natural_language"
+  question: "how does Flask handle CORS headers in responses"
+  expected:
+    - "cors"
+    - "after_request"
+    - "flask/cors.py"
+    - "flask/app.py:2400-2600"
+  tags: ["semantic", "conceptual", "cross-cutting"]
+
+- id: "flask-nl-002"
+  repo: "flask"
+  type: "natural_language"
+  question: "error handling for 404 and 500 errors in Flask"
+  expected:
+    - "errorhandler"
+    - "register_error_handler"
+    - "flask/app.py:1400-1600"
+  tags: ["semantic", "error-handling"]

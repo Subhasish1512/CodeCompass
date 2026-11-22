@@ -1,0 +1,180 @@
+[
+  {
+    "id": "flask-def-001",
+    "query": "function that creates the Flask application instance",
+    "description": "",
+    "category": "definition",
+    "repository": "flask",
+    "expected_symbols": [
+      "Flask.__init__",
+      "create_app",
+      "flask/app.py:400-500"
+    ],
+    "expected_files": [],
+    "min_recall_at_k": {},
+    "tags": [
+      "exact",
+      "keyword-heavy"
+    ]
+  },
+  {
+    "id": "flask-def-002",
+    "query": "class that handles HTTP request context",
+    "description": "",
+    "category": "definition",
+    "repository": "flask",
+    "expected_symbols": [
+      "RequestContext",
+      "flask/ctx.py:200-350"
+    ],
+    "expected_files": [],
+    "min_recall_at_k": {},
+    "tags": [
+      "semantic",
+      "class"
+    ]
+  },
+  {
+    "id": "flask-def-003",
+    "query": "blueprint registration function",
+    "description": "",
+    "category": "definition",
+    "repository": "flask",
+    "expected_symbols": [
+      "Flask.register_blueprint",
+      "flask/app.py:900-1000"
+    ],
+    "expected_files": [],
+    "min_recall_at_k": {},
+    "tags": [
+      "exact",
+      "method"
+    ]
+  },
+  {
+    "id": "flask-callers-001",
+    "query": "functions that call the URL routing dispatcher",
+    "description": "",
+    "category": "callers",
+    "repository": "flask",
+    "expected_symbols": [
+      "Flask.dispatch_request",
+      "flask/app.py:1800-2000",
+      "flask/app.py:2100-2200"
+    ],
+    "expected_files": [],
+    "min_recall_at_k": {},
+    "tags": [
+      "graph",
+      "transitive"
+    ]
+  },
+  {
+    "id": "flask-callers-002",
+    "query": "what calls the template rendering function",
+    "description": "",
+    "category": "callers",
+    "repository": "flask",
+    "expected_symbols": [
+      "render_template",
+      "flask/templating.py:100-200"
+    ],
+    "expected_files": [],
+    "min_recall_at_k": {},
+    "tags": [
+      "graph",
+      "direct"
+    ]
+  },
+  {
+    "id": "flask-callees-001",
+    "query": "what does the request preprocessing pipeline call",
+    "description": "",
+    "category": "callees",
+    "repository": "flask",
+    "expected_symbols": [
+      "Flask.preprocess_request",
+      "flask/app.py:2200-2400"
+    ],
+    "expected_files": [],
+    "min_recall_at_k": {},
+    "tags": [
+      "graph",
+      "direct"
+    ]
+  },
+  {
+    "id": "flask-refs-001",
+    "query": "where is the Config class used throughout the codebase",
+    "description": "",
+    "category": "refs",
+    "repository": "flask",
+    "expected_symbols": [
+      "Config",
+      "flask/config.py:50-150"
+    ],
+    "expected_files": [],
+    "min_recall_at_k": {},
+    "tags": [
+      "graph",
+      "references"
+    ]
+  },
+  {
+    "id": "flask-impact-001",
+    "query": "impact of changing the session interface implementation",
+    "description": "",
+    "category": "impact",
+    "repository": "flask",
+    "expected_symbols": [
+      "SessionInterface",
+      "flask/sessions.py:100-300",
+      "flask/app.py:1200-1400"
+    ],
+    "expected_files": [],
+    "min_recall_at_k": {},
+    "tags": [
+      "graph",
+      "transitive",
+      "impact"
+    ]
+  },
+  {
+    "id": "flask-nl-001",
+    "query": "how does Flask handle CORS headers in responses",
+    "description": "",
+    "category": "natural_language",
+    "repository": "flask",
+    "expected_symbols": [
+      "cors",
+      "after_request",
+      "flask/cors.py",
+      "flask/app.py:2400-2600"
+    ],
+    "expected_files": [],
+    "min_recall_at_k": {},
+    "tags": [
+      "semantic",
+      "conceptual",
+      "cross-cutting"
+    ]
+  },
+  {
+    "id": "flask-nl-002",
+    "query": "error handling for 404 and 500 errors in Flask",
+    "description": "",
+    "category": "natural_language",
+    "repository": "flask",
+    "expected_symbols": [
+      "errorhandler",
+      "register_error_handler",
+      "flask/app.py:1400-1600"
+    ],
+    "expected_files": [],
+    "min_recall_at_k": {},
+    "tags": [
+      "semantic",
+      "error-handling"
+    ]
+  }
+]
